@@ -8,6 +8,7 @@ theme:
 
 nav:
   - Home: index.md
+  - Home1: index1.md
   - About: about.md
 
 markdown_extensions:
