@@ -60,10 +60,4 @@ fetch('/graph_data.json')
 </style>
 
 # 23_24_HK1
-[Blockchain](blockchain/lecture.md)
-
-
-Chào mừng bạn đến với tài liệu của chúng tôi!
-
-!!! note
-    Đây là một ghi chú quan trọng sử dụng Markdown extension 'admonition'.
+[TH1383 - Blockchain](blockchain/lecture.md)
