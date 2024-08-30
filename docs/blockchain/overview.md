@@ -1,16 +1,16 @@
-# Cấu trúc
+# **Cấu trúc**
 
-# Cách định nghĩa
+# **Cách định nghĩa**
 - Blockchain
 - Mainnet và Testnet
 
-# Ví
+# **Wallet**
 - Metamask
 
-# Ngôn ngữ lập trình
+# **Ngôn ngữ lập trình**
 - [Solidity](solidity.md)
 
-# Mạng testnet
+# **Mạng testnet**
 
-# Dịch vụ
+# **Dịch vụ**
 - [Infura](infura.md)
