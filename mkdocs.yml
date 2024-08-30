@@ -1,0 +1,19 @@
+site_name: HuuTho's Blog
+
+theme:
+  name: 'material'
+  palette:
+    primary: 'blue'
+    accent: 'light blue'
+
+nav:
+  - Home: index.md
+  - About: about.md
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - footnotes
+  - meta
+  - toc:
+      permalink: true
