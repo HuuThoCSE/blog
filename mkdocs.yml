@@ -9,7 +9,11 @@ theme:
 nav:
   - Home: index.md
   - Home1: index1.md
+  - Block chain: blockchain/lecture.md
   - About: about.md
+  - Graph View: graph.md
+
+  - MKDocs Material: mkdocs_material/index.md
 
 markdown_extensions:
   - admonition

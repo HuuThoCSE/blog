@@ -1,0 +1,34 @@
+{
+    "nodes": [
+        {
+            "id": "about.md",
+            "label": "about.md"
+        },
+        {
+            "id": "graph.md",
+            "label": "graph.md"
+        },
+        {
+            "id": "index.md",
+            "label": "index.md"
+        },
+        {
+            "id": "index1.md",
+            "label": "index1.md"
+        },
+        {
+            "id": "lecture.md",
+            "label": "lecture.md"
+        },
+        {
+            "id": "index.md",
+            "label": "index.md"
+        }
+    ],
+    "edges": [
+        {
+            "from": "index.md",
+            "to": "lecture.md"
+        }
+    ]
+}
