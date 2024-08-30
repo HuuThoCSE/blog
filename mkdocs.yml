@@ -8,11 +8,15 @@ theme:
 
 nav:
   - Home: index.md
-  - Home1: index1.md
+  - Courses:
+    - Introduction: courses/index.md
+    - Blockchain Course:
+          - Overview: courses/blockchain/overview.md
+          - Syllabus: courses/blockchain/syllabus.md
+          - Instructors: courses/blockchain/instructors.md
   - Block chain: blockchain/lecture.md
   - About: about.md
   - Graph View: graph.md
-
   - MKDocs Material: mkdocs_material/index.md
 
 markdown_extensions:
