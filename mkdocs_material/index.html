@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../graph/">
+        <link rel="prev" href="../about/">
       
       
       
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#start-server" class="md-skip">
+        <a href="#trang-chu" class="md-skip">
           Skip to content
         </a>
       
@@ -197,7 +197,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../index.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -216,16 +216,165 @@
   
   
   
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Courses
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Courses
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../index1/" class="md-nav__link">
+      <a href="../courses/index.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Home1
+    Introduction
   </span>
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Blockchain Course
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Blockchain Course
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../courses/blockchain/overview.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../courses/blockchain/syllabus.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syllabus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../courses/blockchain/instructors.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instructors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -277,7 +426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../graph/" class="md-nav__link">
+      <a href="../graph.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -353,13 +502,66 @@
                   
 
 
-<h1 id="start-server"><strong>Start server</strong><a class="headerlink" href="#start-server" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><code>$mkdocs serve
-</code></pre></div>
+<h1 id="trang-chu">Trang Chủ<a class="headerlink" href="#trang-chu" title="Permanent link">&para;</a></h1>
+<h1 id="graph-view">Graph View<a class="headerlink" href="#graph-view" title="Permanent link">&para;</a></h1>
+<div id="mynetwork"></div>
 
-<h1 id="deploy"><strong>Deploy</strong><a class="headerlink" href="#deploy" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><code>$mkdocs gh-deploy
-</code></pre></div>
+<script type="text/javascript" src="https://unpkg.com/vis-network@9.1.2/dist/vis-network.min.js"></script>
+<p><link href="https://unpkg.com/vis-network@9.1.2/styles/vis-network.min.css" rel="stylesheet" type="text/css" /></p>
+<script type="text/javascript">
+// Load graph data from JSON file
+fetch('/graph_data.json')
+  .then(response => response.json())
+  .then(data => {
+    const uniqueNodes = new Map();
+    const nodes = [];
+    const edges = [];
+
+    data.nodes.forEach(node => {
+      if (!uniqueNodes.has(node.id)) {
+        uniqueNodes.set(node.id, true);
+        nodes.push(node);
+      }
+    });
+
+    data.edges.forEach(edge => {
+      edges.push(edge);
+    });
+
+    const container = document.getElementById('mynetwork');
+    const graphData = {
+      nodes: new vis.DataSet(nodes),
+      edges: new vis.DataSet(edges)
+    };
+
+    const options = {
+      nodes: {
+        shape: 'dot',
+        size: 20
+      },
+      edges: {
+        arrows: 'to'
+      },
+      physics: {
+        enabled: true
+      }
+    };
+
+    new vis.Network(container, graphData, options);
+  })
+  .catch(error => console.error('Error loading graph data:', error));
+</script>
+
+<style>
+#mynetwork {
+  width: 100%;
+  height: 600px;
+  border: 1px solid lightgray;
+}
+</style>
+
+<h1 id="23_24_hk1">23_24_HK1<a class="headerlink" href="#23_24_hk1" title="Permanent link">&para;</a></h1>
+<p><a href="blockchain/lecture.md">TH1383 - Blockchain</a></p>
 
 
 
