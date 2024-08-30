@@ -12,7 +12,7 @@
 
 # **Mạng testnet**
 - [Sepolia](network/sepolia.md)
-- [Holesky](https://holesky.ethpandaops.io/)
+- [Holesky](network/holesky.md)
 
 # **Dịch vụ**
 - [Infura](infura.md)
