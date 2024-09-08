@@ -23,6 +23,9 @@ sudo apt-get install php8.2-mysql
 sudo find / -name pdo_mysql.so
 ```
 ## Bước 2: Copy file pdo_mysql.so đến nơi php hoạt động
+```
+sudo cp /usr/lib/php/20220829/pdo_mysql.so /opt/php/8.2.14/lib/php/extensions/no-debug-non-zts-20220829/
+```
 
 ## Kiểm tra lại ví trí của các extension
 ```cmd
@@ -33,4 +36,9 @@ php -i | grep extension_dir
 ## Code run project
 ```cmd
 php artisan serve --host=0.0.0.0 --port=8000
+```
+
+## Clear cache
+```cmd
+php artisan config:clear
 ```
