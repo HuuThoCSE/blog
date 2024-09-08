@@ -16,7 +16,7 @@
     
     
       
-        <title>Overview - HuuTho's Blog</title>
+        <title>ThoCSE-Laravel - HuuTho's Blog</title>
       
     
     
@@ -65,6 +65,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#thocse-laravel" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -97,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Overview
+              ThoCSE-Laravel
             
           </span>
         </div>
@@ -220,6 +225,25 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tai-laravel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tải laravel
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -234,9 +258,119 @@
                   
 
 
-  <h1>Overview</h1>
+<h1 id="thocse-laravel">ThoCSE-Laravel<a class="headerlink" href="#thocse-laravel" title="Permanent link">&para;</a></h1>
+<h2 id="tai-laravel">Tải laravel<a class="headerlink" href="#tai-laravel" title="Permanent link">&para;</a></h2>
+<p>https://github.com/laravel/laravel
+- Chọn release</p>
+<h1 id="tai-file-composerphar">Tải file composer.phar<a class="headerlink" href="#tai-file-composerphar" title="Permanent link">&para;</a></h1>
+<p>https://getcomposer.org/download/
+- Paste vào thư mục folder</p>
+<h2 id="tai-phpstorm">Tải PHPStorm<a class="headerlink" href="#tai-phpstorm" title="Permanent link">&para;</a></h2>
+<h2 id="tai-phpcomposer">Tải phpComposer<a class="headerlink" href="#tai-phpcomposer" title="Permanent link">&para;</a></h2>
+<p>https://getcomposer.org/download/</p>
+<h2 id="tai-mamp">Tải MAMP<a class="headerlink" href="#tai-mamp" title="Permanent link">&para;</a></h2>
+<h2 id="coi-phien-ban-php-phu-hop">Coi phiên bản PHP phù hợp<a class="headerlink" href="#coi-phien-ban-php-phu-hop" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Vào folder laravel</li>
+<li>Mở Composer.json, check phần require &gt; php</li>
+</ul>
+<h2 id="tai-laragon">Tải laragon<a class="headerlink" href="#tai-laragon" title="Permanent link">&para;</a></h2>
+<h1 id="loi">Lỗi<a class="headerlink" href="#loi" title="Permanent link">&para;</a></h1>
+<h2 id="loi-ssl">Lỗi ssl<a class="headerlink" href="#loi-ssl" title="Permanent link">&para;</a></h2>
+<p>Bước 1</p>
+<div class="codehilite"><pre><span></span><code>composer config -g -- disable-tls true
+</code></pre></div>
 
+<p>Bước 2</p>
+<div class="codehilite"><pre><span></span><code><span class="o">;</span><span class="w"> </span><span class="nt">https</span><span class="o">://</span><span class="nt">php</span><span class="p">.</span><span class="nc">net</span><span class="o">/</span><span class="nt">extension-dir</span>
+<span class="o">;</span><span class="nt">extension_dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;./&quot;</span>
+<span class="o">;</span><span class="w"> </span><span class="nt">On</span><span class="w"> </span><span class="nt">windows</span><span class="o">:</span>
+<span class="o">;</span><span class="nt">extension_dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ext&quot;</span>
+</code></pre></div>
 
+<p>to</p>
+<div class="codehilite"><pre><span></span><code><span class="o">;</span><span class="w"> </span><span class="nt">https</span><span class="o">://</span><span class="nt">php</span><span class="p">.</span><span class="nc">net</span><span class="o">/</span><span class="nt">extension-dir</span>
+<span class="o">;</span><span class="nt">extension_dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;./&quot;</span>
+<span class="o">;</span><span class="w"> </span><span class="nt">On</span><span class="w"> </span><span class="nt">windows</span><span class="o">:</span>
+<span class="nt">extension_dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ext&quot;</span>
+</code></pre></div>
+
+<h2 id="loi-could-not-find-driver">Lỗi: could not find driver<a class="headerlink" href="#loi-could-not-find-driver" title="Permanent link">&para;</a></h2>
+<p>Vào php.init</p>
+<div class="codehilite"><pre><span></span><code><span class="c">;extention=pdo_mysql</span>
+</code></pre></div>
+
+<p>thành </p>
+<div class="codehilite"><pre><span></span><code>extention=pdo_mysql
+</code></pre></div>
+
+<h2 id="vao-folder-laravel">Vào folder laravel<a class="headerlink" href="#vao-folder-laravel" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>$php -v
+$php composer.phar install
+</code></pre></div>
+
+<h2 id="_1"><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>Code Create Project Laravel: composer create-project laravel/laravel &quot;tên thư  mục&quot;
+Code ignore platform: composer install --ignore-platform-reqs
+Code up date ignore platform: composer update --ignore-platform-reqs
+php artisan serve
+</code></pre></div>
+
+<h2 id="vao-file-thu-muc-chua-phpinit">Vào file thư mục chứa php.init<a class="headerlink" href="#vao-file-thu-muc-chua-phpinit" title="Permanent link">&para;</a></h2>
+<p>Chỉnh</p>
+<div class="codehilite"><pre><span></span><code>;extension=fileinfo
+</code></pre></div>
+
+<p>thành</p>
+<div class="codehilite"><pre><span></span><code>extension=php_fileinfo.dll
+</code></pre></div>
+
+<h1 id="copy-file-envexample-thanh-env">Copy file .env.example thành .env<a class="headerlink" href="#copy-file-envexample-thanh-env" title="Permanent link">&para;</a></h1>
+<h2 id="tao-token">Tạo token<a class="headerlink" href="#tao-token" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>php artisan key:generate
+</code></pre></div>
+
+<h2 id="tao-controller">Tạo controller<a class="headerlink" href="#tao-controller" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>php artisan make:controller HomeController
+</code></pre></div>
+
+<h2 id="tao-model">Tạo model<a class="headerlink" href="#tao-model" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>php artisan make model SinhVienModel
+</code></pre></div>
+
+<h2 id="ket-noi-database">Kết nối database<a class="headerlink" href="#ket-noi-database" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Nhập thông tin ở file <code>.env</code>
+Sau đó chạy code:</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>php artisan migrate
+</code></pre></div>
+
+<h1 id="code-with-codespace">Code with Codespace<a class="headerlink" href="#code-with-codespace" title="Permanent link">&para;</a></h1>
+<h2 id="tim-vi-tri-file-phpini">Tìm vị trí file php.ini<a class="headerlink" href="#tim-vi-tri-file-phpini" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>php --ini
+</code></pre></div>
+
+<h2 id="buoc-0-cap-nhat-lai-os">Bước 0: Cập nhật lại OS<a class="headerlink" href="#buoc-0-cap-nhat-lai-os" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>sudo apt-get update
+</code></pre></div>
+
+<h2 id="su-dung-kho-luu-tru-ppa">Sử dụng kho lưu trữ PPA<a class="headerlink" href="#su-dung-kho-luu-tru-ppa" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>sudo add-apt-repository ppa:ondrej/php
+</code></pre></div>
+
+<h2 id="cai-at-lai-extension">Cài đặt lại extension<a class="headerlink" href="#cai-at-lai-extension" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>sudo apt-get install php8.2-mysql
+</code></pre></div>
+
+<h2 id="buoc-1-tim-vi-tri-file">Bước 1: Tìm vị trí file<a class="headerlink" href="#buoc-1-tim-vi-tri-file" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>sudo find / -name pdo_mysql.so
+</code></pre></div>
+
+<h2 id="buoc-2-copy-file-pdo_mysqlso-en-noi-php-hoat-ong">Bước 2: Copy file pdo_mysql.so đến nơi php hoạt động<a class="headerlink" href="#buoc-2-copy-file-pdo_mysqlso-en-noi-php-hoat-ong" title="Permanent link">&para;</a></h2>
+<h2 id="kiem-tra-lai-vi-tri-cua-cac-extension">Kiểm tra lại ví trí của các extension<a class="headerlink" href="#kiem-tra-lai-vi-tri-cua-cac-extension" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>php -i | grep extension_dir
+</code></pre></div>
 
 
 
