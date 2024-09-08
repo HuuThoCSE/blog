@@ -1,8 +1,9 @@
-# 23_24_HKH
-[Laravel](laravel/overview.md)
-[MkDocs](mkdocs/overview.md)
+# 23-24 Học kỳ HKH
 
-# 24_25_HK1
-[TH1383 - Blockchain](blockchain/overview.md)
+- [Laravel](laravel/overview.md)
+- [MkDocs](mkdocs/overview.md)
 
-[TH1383 - Practice Blockchain](blockchain/practice/practice1.md)
+# 24-25 Học kỳ 1
+
+- [TH1383 - Blockchain](blockchain/overview.md)
+- [TH1383 - Practice Blockchain](blockchain/practice/practice1.md)

@@ -7,3 +7,8 @@ mkdocs serve
 ```cmd
 mkdocs build
 ```
+
+# Deploy to Github
+```cmd
+mkdocs gh-deploy
+```
