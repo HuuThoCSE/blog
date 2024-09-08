@@ -2,6 +2,7 @@
 # ThoCSE-Laravel
 
 ## Link
+[Create new Project](create-new-project.md)
 [Code with Codespace](code-with-codespace.md)
 
 
