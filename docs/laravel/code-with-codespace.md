@@ -28,3 +28,9 @@ sudo find / -name pdo_mysql.so
 ```cmd
 php -i | grep extension_dir
 ```
+
+
+## Code run project
+```cmd
+php artisan serve --host=0.0.0.0 --port=8000
+```
