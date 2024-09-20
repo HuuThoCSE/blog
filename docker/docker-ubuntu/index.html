@@ -269,6 +269,30 @@
 <div class="codehilite"><pre><span></span><code><span class="k">exit</span>
 </code></pre></div>
 
+<h2 id="makefine">Makefine<a class="headerlink" href="#makefine" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>DOCKER_NETWORK<span class="w"> </span>=<span class="w"> </span>docker-hadoop_default
+ENV_FILE<span class="w"> </span>=<span class="w"> </span>hadoop.env
+current_branch<span class="w"> </span>:=<span class="w"> </span>2.0.0-hadoop3.2.1-java8
+
+build:
+<span class="w">        </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>bde2020/hadoop-base:$(current_branch)<span class="w"> </span>./base
+<span class="w">        </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>bde2020/hadoop-namenode:$(current_branch)<span class="w"> </span>./namenode
+<span class="w">        </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>bde2020/hadoop-datanode:$(current_branch)<span class="w"> </span>./datanode
+<span class="w">        </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>bde2020/hadoop-resourcemanager:$(current_branch)<span class="w"> </span>./resourcemanager
+<span class="w">        </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>bde2020/hadoop-nodemanager:$(current_branch)<span class="w"> </span>./nodemanager
+<span class="w">        </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>bde2020/hadoop-historyserver:$(current_branch)<span class="w"> </span>./historyserver
+<span class="w">        </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>bde2020/hadoop-submit:$(current_branch)<span class="w"> </span>./submit
+
+wordcount:
+<span class="w">        </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>hadoop-wordcount<span class="w"> </span>./submit
+<span class="w">        </span>docker<span class="w"> </span>run<span class="w"> </span>--network<span class="w"> </span><span class="cp">${</span><span class="n">DOCKER_NETWORK</span><span class="cp">}</span><span class="w"> </span>--env-file<span class="w"> </span><span class="cp">${</span><span class="n">ENV_FILE</span><span class="cp">}</span><span class="w"> </span>bde2020/hadoop-base:$(current_branch)<span class="w"> </span>hdfs<span class="w"> </span>dfs<span class="w"> </span>-mkdir<span class="w"> </span>-p<span class="w"> </span>/input/
+<span class="w">        </span>docker<span class="w"> </span>run<span class="w"> </span>--network<span class="w"> </span><span class="cp">${</span><span class="n">DOCKER_NETWORK</span><span class="cp">}</span><span class="w"> </span>--env-file<span class="w"> </span><span class="cp">${</span><span class="n">ENV_FILE</span><span class="cp">}</span><span class="w"> </span>bde2020/hadoop-base:$(current_branch)<span class="w"> </span>hdfs<span class="w"> </span>dfs<span class="w"> </span>-copyFromLocal<span class="w"> </span>-f<span class="w"> </span>/opt/hadoop-3.2.1/README.txt<span class="w"> </span>/input/
+<span class="w">        </span>docker<span class="w"> </span>run<span class="w"> </span>--network<span class="w"> </span><span class="cp">${</span><span class="n">DOCKER_NETWORK</span><span class="cp">}</span><span class="w"> </span>--env-file<span class="w"> </span><span class="cp">${</span><span class="n">ENV_FILE</span><span class="cp">}</span><span class="w"> </span>hadoop-wordcount
+<span class="w">        </span>docker<span class="w"> </span>run<span class="w"> </span>--network<span class="w"> </span><span class="cp">${</span><span class="n">DOCKER_NETWORK</span><span class="cp">}</span><span class="w"> </span>--env-file<span class="w"> </span><span class="cp">${</span><span class="n">ENV_FILE</span><span class="cp">}</span><span class="w"> </span>bde2020/hadoop-base:$(current_branch)<span class="w"> </span>hdfs<span class="w"> </span>dfs<span class="w"> </span>-cat<span class="w"> </span>/output/*
+<span class="w">        </span>docker<span class="w"> </span>run<span class="w"> </span>--network<span class="w"> </span><span class="cp">${</span><span class="n">DOCKER_NETWORK</span><span class="cp">}</span><span class="w"> </span>--env-file<span class="w"> </span><span class="cp">${</span><span class="n">ENV_FILE</span><span class="cp">}</span><span class="w"> </span>bde2020/hadoop-base:$(current_branch)<span class="w"> </span>hdfs<span class="w"> </span>dfs<span class="w"> </span>-rm<span class="w"> </span>-r<span class="w"> </span>/output
+<span class="w">        </span>docker<span class="w"> </span>run<span class="w"> </span>--network<span class="w"> </span><span class="cp">${</span><span class="n">DOCKER_NETWORK</span><span class="cp">}</span><span class="w"> </span>--env-file<span class="w"> </span><span class="cp">${</span><span class="n">ENV_FILE</span><span class="cp">}</span><span class="w"> </span>bde2020/hadoop-base:$(current_branch)<span class="w"> </span>hdfs<span class="w"> </span>dfs<span class="w"> </span>-rm<span class="w"> </span>-r<span class="w"> </span>/input
+</code></pre></div>
+
 
 
 
