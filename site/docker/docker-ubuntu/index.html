@@ -16,7 +16,7 @@
     
     
       
-        <title>Ubuntu - HuuTho's Blog</title>
+        <title>Xác định container ID hoặc tên của container - HuuTho's Blog</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ubuntu" class="md-skip">
+        <a href="#xac-inh-container-id-hoac-ten-cua-container" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Ubuntu
+              Xác định container ID hoặc tên của container
             
           </span>
         </div>
@@ -241,13 +241,33 @@
                   
 
 
-<h1 id="ubuntu">Ubuntu<a class="headerlink" href="#ubuntu" title="Permanent link">&para;</a></h1>
-<ul>
-<li><a href="../ubuntu-setuplan/">Setup LAN</a></li>
-<li><a href="../ubuntu-storage/">Setup Storage</a></li>
-<li><a href="../ubuntu-nodejs/">Setup NodeJS</a></li>
-<li><a href="../ubuntu-docker/">Setup Docker</a></li>
-</ul>
+<h1 id="xac-inh-container-id-hoac-ten-cua-container">Xác định container ID hoặc tên của container<a class="headerlink" href="#xac-inh-container-id-hoac-ten-cua-container" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>ps<span class="w"> </span>-a
+</code></pre></div>
+
+<h1 id="khoi-ong-lai-container-neu-no-a-dung">Khởi động lại container nếu nó đã dừng<a class="headerlink" href="#khoi-ong-lai-container-neu-no-a-dung" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>start<span class="w"> </span>&lt;container-id&gt;
+</code></pre></div>
+
+<h1 id="vao-lai-container">Vào lại container<a class="headerlink" href="#vao-lai-container" title="Permanent link">&para;</a></h1>
+<p>Sau khi container đã chạy hoặc đang chạy, sử dụng lệnh sau để kết nối lại với container:</p>
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;container-id&gt;<span class="w"> </span>bash
+</code></pre></div>
+
+<p>Hoặc nếu muốn vào container đã chạy nhưng bị dừng ở trước đó:</p>
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>attach<span class="w"> </span>&lt;container-id&gt;
+</code></pre></div>
+
+<p>Lưu ý:
+- <code>docker exec -it</code> cho phép em mở một terminal mới trong container, ngay cả khi container đang chạy một lệnh khác.
+- <code>docker attach</code> cho phép em nối lại phiên làm việc với container, nhưng nếu container không ở chế độ tương tác, em có thể không thấy đầu ra.</p>
+<h1 id="e-thoat-ma-khong-dung-container">Để thoát mà không dừng container<a class="headerlink" href="#e-thoat-ma-khong-dung-container" title="Permanent link">&para;</a></h1>
+<p>Sử dụng tổ hợp phím <code>Ctrl + P</code> và <code>Ctrl + Q</code></p>
+<h1 id="cac-trang-thai-container">Các trạng thái container<a class="headerlink" href="#cac-trang-thai-container" title="Permanent link">&para;</a></h1>
+<p>Exited: trạng thái dừng</p>
+<h1 id="ket-thuc-lam-viec">kết thúc làm việc<a class="headerlink" href="#ket-thuc-lam-viec" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><code><span class="k">exit</span>
+</code></pre></div>
 
 
 
