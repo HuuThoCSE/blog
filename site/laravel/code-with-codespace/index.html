@@ -278,18 +278,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#buoc-2-copy-file-pdo_mysqlso-en-noi-php-hoat-ong" class="md-nav__link">
+  <a href="#kiem-tra-lai-vi-tri-cua-cac-extension" class="md-nav__link">
     <span class="md-ellipsis">
-      Bước 2: Copy file pdo_mysql.so đến nơi php hoạt động
+      Kiểm tra lại ví trí của các extension
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#kiem-tra-lai-vi-tri-cua-cac-extension" class="md-nav__link">
+  <a href="#buoc-2-copy-file-pdo_mysqlso-en-noi-php-hoat-ong" class="md-nav__link">
     <span class="md-ellipsis">
-      Kiểm tra lại ví trí của các extension
+      Bước 2: Copy file pdo_mysql.so đến nơi php hoạt động
     </span>
   </a>
   
@@ -305,9 +305,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#clear-cache" class="md-nav__link">
+  <a href="#clear-cache-and-route" class="md-nav__link">
     <span class="md-ellipsis">
-      Clear cache
+      Clear cache and route
     </span>
   </a>
   
@@ -330,6 +330,9 @@
 
   <h1>Code with codespace</h1>
 
+<div class="codehilite"><pre><span></span><code>php composer.phar install
+</code></pre></div>
+
 <h2 id="tim-vi-tri-file-phpini">Tìm vị trí file php.ini<a class="headerlink" href="#tim-vi-tri-file-phpini" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><code>php --ini
 </code></pre></div>
@@ -350,20 +353,20 @@
 <div class="codehilite"><pre><span></span><code>sudo find / -name pdo_mysql.so
 </code></pre></div>
 
-<h2 id="buoc-2-copy-file-pdo_mysqlso-en-noi-php-hoat-ong">Bước 2: Copy file pdo_mysql.so đến nơi php hoạt động<a class="headerlink" href="#buoc-2-copy-file-pdo_mysqlso-en-noi-php-hoat-ong" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>sudo cp /usr/lib/php/20220829/pdo_mysql.so /opt/php/8.2.14/lib/php/extensions/no-debug-non-zts-20220829/
-</code></pre></div>
-
 <h2 id="kiem-tra-lai-vi-tri-cua-cac-extension">Kiểm tra lại ví trí của các extension<a class="headerlink" href="#kiem-tra-lai-vi-tri-cua-cac-extension" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><code>php -i | grep extension_dir
+</code></pre></div>
+
+<h2 id="buoc-2-copy-file-pdo_mysqlso-en-noi-php-hoat-ong">Bước 2: Copy file pdo_mysql.so đến nơi php hoạt động<a class="headerlink" href="#buoc-2-copy-file-pdo_mysqlso-en-noi-php-hoat-ong" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>sudo cp /usr/lib/php/20220829/pdo_mysql.so /opt/php/8.2.14/lib/php/extensions/no-debug-non-zts-20220829/
 </code></pre></div>
 
 <h2 id="code-run-project">Code run project<a class="headerlink" href="#code-run-project" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><code>php artisan serve --host=0.0.0.0 --port=8000
 </code></pre></div>
 
-<h2 id="clear-cache">Clear cache<a class="headerlink" href="#clear-cache" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>php artisan config:clear
+<h2 id="clear-cache-and-route">Clear cache and route<a class="headerlink" href="#clear-cache-and-route" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>php artisan config:clear &amp; php artisan route:clear
 </code></pre></div>
 
 
