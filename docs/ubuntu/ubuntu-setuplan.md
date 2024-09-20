@@ -31,3 +31,16 @@ network:
                 - 8.8.8.8
                 - 8.8.4.4
 ```
+
+`ESC` và `:wq`
+
+# Bước 4: Áp dụng cấu hình
+```cmd
+sudo netplan apply
+```
+
+
+# Bước 5: Kiểm tra lại cấu hình
+```
+ip addr
+```
