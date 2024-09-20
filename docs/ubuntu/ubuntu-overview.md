@@ -1,3 +1,3 @@
 # Ubuntu
-[Setup LAN](ubuntu/ubuntu-setuplan.md)
-[Setup Storage](ubuntu/ubuntu-storage.md)
+- [Setup LAN](ubuntu-setuplan.md)
+- [Setup Storage](ubuntu-storage.md)
