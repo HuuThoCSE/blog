@@ -270,7 +270,9 @@ sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">en
 allow_anonymous<span class="w"> </span><span class="nb">true</span>
 </code></pre></div>
 
-<p>Tệp cấu hình trên cho phép Mosquitto lắng nghe trên cổng 1883 và cho phép các kết nối ẩn danh.</p>
+<p>Tệp cấu hình trên cho phép Mosquitto lắng nghe trên cổng 1883 và cho phép các kết nối ẩn danh.
+- <code>listener</code> 1883: Lắng nghe trên cổng 1883 cho mọi giao diện (IPv4 và IPv6).
+- <code>allow_anonymous</code> true: Cho phép các client kết nối mà không cần xác thực.</p>
 <h2 id="chay-mosquitto-voi-tep-cau-hinh-tuy-chinh">Chạy Mosquitto với tệp cấu hình tùy chỉnh:<a class="headerlink" href="#chay-mosquitto-voi-tep-cau-hinh-tuy-chinh" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><code>sudo docker run -it -p 1883:1883 -p 9001:9001 -v $(pwd)/mosquitto_config:/mosquitto/config eclipse-mosquitto
 </code></pre></div>

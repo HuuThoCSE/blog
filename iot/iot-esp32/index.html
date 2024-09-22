@@ -247,6 +247,24 @@
 <li><a href="https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads">Tải driver</a></li>
 <li>Chọn <code>CP210x Windows Drivers</code></li>
 </ul>
+<h1 id="them-esp32-board-vao-arduino-ide">Thêm ESP32 Board vào Arduino IDE<a class="headerlink" href="#them-esp32-board-vao-arduino-ide" title="Permanent link">&para;</a></h1>
+<p>Mặc định Arduino IDE không hỗ trợ ESP32, nên bạn cần thêm board ESP32 vào IDE:
+1. Mở Arduino IDE.
+2. Vào File &gt; Preferences.
+3. Tại mục Additional Boards Manager URLs, thêm đường dẫn sau:</p>
+<div class="codehilite"><pre><span></span><code><span class="nx">https</span><span class="p">:</span><span class="c1">//dl.espressif.com/dl/package_esp32_index.json</span>
+</code></pre></div>
+
+<ol>
+<li>Nhấn OK để lưu lại.</li>
+</ol>
+<h1 id="cai-at-esp32-board">Cài đặt ESP32 Board<a class="headerlink" href="#cai-at-esp32-board" title="Permanent link">&para;</a></h1>
+<ol>
+<li>Vào Tools &gt; Board &gt; Boards Manager.</li>
+<li>Tìm kiếm esp32 trong Boards Manager.</li>
+<li>Chọn esp32 by Espressif Systems và nhấn Install.</li>
+</ol>
+<h1 id="nap-code-thi-e-nut-boot-truoc-khi-nap-code">Nạp code thì đè nút BOOT trước khi nạp code<a class="headerlink" href="#nap-code-thi-e-nut-boot-truoc-khi-nap-code" title="Permanent link">&para;</a></h1>
 
 
 
