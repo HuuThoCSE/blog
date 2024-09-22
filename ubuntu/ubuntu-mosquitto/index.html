@@ -430,6 +430,14 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 <span class="p">}</span>
 </code></pre></div>
 
+<h1 id="tao-subscribe-tren-docker-voi-topic-test">Tạo subscribe trên docker với topic <code>test</code><a class="headerlink" href="#tao-subscribe-tren-docker-voi-topic-test" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>eclipse-mosquitto<span class="w"> </span>mosquitto_sub<span class="w"> </span>-h<span class="w"> </span><span class="m">192</span>.168.0.110<span class="w"> </span>-t<span class="w"> </span><span class="s2">&quot;test&quot;</span>
+</code></pre></div>
+
+<h1 id="ket-noi-lai-voi-phien-lam-viec-cua-container-hien-tai">Kết nối lại với phiên làm việc của container hiện tại<a class="headerlink" href="#ket-noi-lai-voi-phien-lam-viec-cua-container-hien-tai" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>attach<span class="w"> </span>&lt;container_id&gt;
+</code></pre></div>
+
 
 
 
