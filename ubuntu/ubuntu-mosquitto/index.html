@@ -268,16 +268,26 @@ sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">en
 <h2 id="vi-du-noi-dung-cua-tep-mosquittoconf">Ví dụ nội dung của tệp mosquitto.conf:<a class="headerlink" href="#vi-du-noi-dung-cua-tep-mosquittoconf" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><code>listener<span class="w"> </span><span class="m">1883</span>
 allow_anonymous<span class="w"> </span><span class="nb">true</span>
+persistence<span class="w"> </span><span class="nb">true</span>
+persistence_location<span class="w"> </span>/mosquitto/data/
+log_dest<span class="w"> </span>file<span class="w"> </span>/mosquitto/log/mosquitto.log
 </code></pre></div>
 
 <p>Tệp cấu hình trên cho phép Mosquitto lắng nghe trên cổng 1883 và cho phép các kết nối ẩn danh.
 - <code>listener</code> 1883: Lắng nghe trên cổng 1883 cho mọi giao diện (IPv4 và IPv6).
-- <code>allow_anonymous</code> true: Cho phép các client kết nối mà không cần xác thực.</p>
+- <code>allow_anonymous</code> true: Cho phép các client kết nối mà không cần xác thực.
+- <code>persistence</code>: Đảm bảo rằng dữ liệu sẽ được lưu khi Mosquitto hoạt động.
+- <code>persistence_location</code>: Đường dẫn đến thư mục nơi Mosquitto sẽ lưu dữ liệu.
+- <code>log_dest</code>: Đường dẫn để ghi log của Mosquitto.</p>
 <h2 id="chay-mosquitto-voi-tep-cau-hinh-tuy-chinh">Chạy Mosquitto với tệp cấu hình tùy chỉnh:<a class="headerlink" href="#chay-mosquitto-voi-tep-cau-hinh-tuy-chinh" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><code>sudo docker run -it -p 1883:1883 -p 9001:9001 -v $(pwd)/mosquitto_config:/mosquitto/config eclipse-mosquitto
 </code></pre></div>
 
 <p>Lệnh trên sẽ ánh xạ thư mục <code>mosquitto_config</code> từ máy chủ của bạn vào thư mục <code>/mosquitto/config</code> trong container.</p>
+<h2 id="chay-lai-file-cau-hinh-moi">Chạy lại file cấu hình mới<a class="headerlink" href="#chay-lai-file-cau-hinh-moi" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>sudo docker restart &lt;container_id&gt;
+</code></pre></div>
+
 <h2 id="kiem-tra-mosquitto-mqtt-broker">Kiểm tra Mosquitto MQTT Broker<a class="headerlink" href="#kiem-tra-mosquitto-mqtt-broker" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Sau khi Mosquitto đã chạy trong Docker, bạn có thể kiểm tra kết nối bằng cách sử dụng công cụ Mosquitto Client hoặc bất kỳ client MQTT nào khác.</li>
