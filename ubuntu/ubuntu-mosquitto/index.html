@@ -309,7 +309,7 @@ mosquitto_sub -h localhost -t test</code></p>
 <p>Nếu bạn muốn lưu trữ các dữ liệu log hoặc dữ liệu bền vững của Mosquitto, bạn có thể ánh xạ một thư mục trên máy chủ vào container bằng cách sử dụng tùy chọn -v để ánh xạ volume.</p>
 </li>
 </ul>
-<div class="codehilite"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>-p<span class="w"> </span><span class="m">1883</span>:1883<span class="w"> </span>-p<span class="w"> </span><span class="m">9001</span>:9001<span class="w"> </span><span class="se">\</span>
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>-p<span class="w"> </span><span class="m">1883</span>:1883<span class="w"> </span>-p<span class="w"> </span><span class="m">9001</span>:9001<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/mosquitto_data:/mosquitto/data<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/mosquitto_log:/mosquitto/log<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/mosquitto_config:/mosquitto/config<span class="w"> </span><span class="se">\</span>
@@ -444,8 +444,49 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 <div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>eclipse-mosquitto<span class="w"> </span>mosquitto_sub<span class="w"> </span>-h<span class="w"> </span><span class="m">192</span>.168.0.110<span class="w"> </span>-t<span class="w"> </span><span class="s2">&quot;test&quot;</span>
 </code></pre></div>
 
+<p>Nếu có tài khoản</p>
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>eclipse-mosquitto<span class="w"> </span>mosquitto_sub<span class="w"> </span>-h<span class="w"> </span><span class="m">192</span>.168.0.110<span class="w"> </span>-t<span class="w"> </span><span class="s2">&quot;test&quot;</span><span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;huuthocse&quot;</span><span class="w"> </span>-P<span class="w"> </span><span class="s2">&quot;123456&quot;</span>
+</code></pre></div>
+
 <h1 id="ket-noi-lai-voi-phien-lam-viec-cua-container-hien-tai">Kết nối lại với phiên làm việc của container hiện tại<a class="headerlink" href="#ket-noi-lai-voi-phien-lam-viec-cua-container-hien-tai" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>attach<span class="w"> </span>&lt;container_id&gt;
+</code></pre></div>
+
+<h1 id="cai-at-nguoi-dung">Cài đặt người dùng<a class="headerlink" href="#cai-at-nguoi-dung" title="Permanent link">&para;</a></h1>
+<h2 id="cai-at-mosquitto_1">Cài đặt Mosquitto<a class="headerlink" href="#cai-at-mosquitto_1" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>mosquitto<span class="w"> </span>mosquitto-clients
+</code></pre></div>
+
+<h2 id="kiem-tra-cai-at-mosquitto-va-mosquitto_passwd">Kiểm tra cài đặt Mosquitto và <code>mosquitto_passwd</code><a class="headerlink" href="#kiem-tra-cai-at-mosquitto-va-mosquitto_passwd" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>mosquitto_passwd
+</code></pre></div>
+
+<h2 id="tao-file-mat-khau-voi-mosquitto_passwd">Tạo file mật khẩu với <code>mosquitto_passwd</code><a class="headerlink" href="#tao-file-mat-khau-voi-mosquitto_passwd" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>mosquitto_passwd<span class="w"> </span>-c<span class="w"> </span>/path/to/passwordfile<span class="w"> </span>&lt;username&gt;
+</code></pre></div>
+
+<p>Ví dụ:</p>
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>mosquitto_passwd<span class="w"> </span>-c<span class="w"> </span>mosquitto_config/passwd<span class="w"> </span>huuthocse
+</code></pre></div>
+
+<h2 id="su-dung-file-mat-khau-trong-mosquitto">Sử dụng file mật khẩu trong Mosquitto<a class="headerlink" href="#su-dung-file-mat-khau-trong-mosquitto" title="Permanent link">&para;</a></h2>
+<p>Sau khi tạo file mật khẩu, bạn cần cấu hình Mosquitto để sử dụng file này. Mở file cấu hình <code>mosquitto.conf</code> và thêm dòng:</p>
+<div class="codehilite"><pre><span></span><code>allow_anonymous<span class="w"> </span><span class="nb">false</span>
+password_file<span class="w"> </span>/mosquitto/config/passwd
+</code></pre></div>
+
+<h2 id="khoi-ong-lai-mosquitto">Khởi động lại Mosquitto<a class="headerlink" href="#khoi-ong-lai-mosquitto" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mosquitto
+</code></pre></div>
+
+<h2 id="kiem-tra-su-dung-cong">Kiểm tra sử dụng cổng<a class="headerlink" href="#kiem-tra-su-dung-cong" title="Permanent link">&para;</a></h2>
+<h3 id="kiem-tra-cong-1883-dich-vu-nao-su-dung">Kiểm tra cổng 1883 dịch vụ nào sử dụng<a class="headerlink" href="#kiem-tra-cong-1883-dich-vu-nao-su-dung" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>lsof<span class="w"> </span>-i<span class="w"> </span>:1883
+</code></pre></div>
+
+<h3 id="dung-dich-vu-mosquitto">Dừng dịch vụ mosquitto<a class="headerlink" href="#dung-dich-vu-mosquitto" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mosquitto
 </code></pre></div>
 
 
