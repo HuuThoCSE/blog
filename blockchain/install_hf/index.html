@@ -258,15 +258,11 @@
 <div class="codehilite"><pre><span></span><code>cat<span class="w"> </span>/etc/group<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>docker<span class="w"> </span>
 </code></pre></div>
 
-<h2 id="cap-nhat-danh-sach-goi-cai-at">Cập nhật danh sách gói cài đặt<a class="headerlink" href="#cap-nhat-danh-sach-goi-cai-at" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+<h2 id="cap-nhat-danh-sach-goi-cai-at-va-nang-cap-cac-goi-phan-mem-hien-tai">Cập nhật danh sách gói cài đặt và nâng cấp các gói phần mềm hiện tại<a class="headerlink" href="#cap-nhat-danh-sach-goi-cai-at-va-nang-cap-cac-goi-phan-mem-hien-tai" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>upgrade<span class="w"> </span>
 </code></pre></div>
 
 <p>Sẽ tìm nạp danh sách các gói cho tất cả các kho lưu trữ và PPA của bạn và đảm bảo rằng hệ thống đã cập nhật.)</p>
-<h2 id="nang-cap-cac-goi-phan-mem-hien-tai">Nâng cấp các gói phần mềm hiện tại<a class="headerlink" href="#nang-cap-cac-goi-phan-mem-hien-tai" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>upgrade
-</code></pre></div>
-
 <h2 id="cai-at-cac-yeu-cau-truoc-cho-hyperledger-composer">Cài đặt các yêu cầu trước cho Hyperledger Composer<a class="headerlink" href="#cai-at-cac-yeu-cau-truoc-cho-hyperledger-composer" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-sSLO<span class="w"> </span>https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/install-fabric.sh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>install-fabric.sh
 </code></pre></div>
