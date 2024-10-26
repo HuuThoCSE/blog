@@ -355,6 +355,25 @@
 <span class="p">.</span><span class="o">/</span><span class="n">network</span><span class="p">.</span><span class="n">sh</span><span class="w"> </span><span class="n">down</span>
 </code></pre></div>
 
+<div class="codehilite"><pre><span></span><code>./network.sh up
+</code></pre></div>
+
+<h1 id="cap-nhat-docker-compose">Cập nhật docker compose<a class="headerlink" href="#cap-nhat-docker-compose" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><code>docker-compose --version
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>sudo rm /usr/local/bin/docker-compose
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="n">sudo</span><span class="w"> </span><span class="n">curl</span><span class="w"> </span><span class="o">-</span><span class="n">L</span><span class="w"> </span><span class="s2">&quot;https://github.com/docker/compose/releases/download/latest/docker-compose-$(uname -s)-$(uname -m)&quot;</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>sudo chmod +x /usr/local/bin/docker-compose
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>docker-compose --version
+</code></pre></div>
+
 
 
 
