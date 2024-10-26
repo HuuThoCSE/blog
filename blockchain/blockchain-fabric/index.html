@@ -297,6 +297,34 @@
 <div class="codehilite"><pre><span></span><code>docker run hello-world
 </code></pre></div>
 
+<div class="codehilite"><pre><span></span><code>sudo snap install code --classic
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>sudo apt-get update
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="n">sudo</span><span class="w"> </span><span class="n">npm</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">npm</span><span class="mf">@6.14.17</span><span class="w"> </span><span class="o">-</span><span class="n">g</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="n">wget</span><span class="w"> </span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="k">go</span><span class="p">.</span><span class="n">dev</span><span class="o">/</span><span class="n">dl</span><span class="o">/</span><span class="n">go1</span><span class="mf">.23.2</span><span class="p">.</span><span class="n">linux</span><span class="o">-</span><span class="n">amd64</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>sudo tar -C /usr/local -xzf go1.23.2.linux-amd64.tar.gz
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>sudo nano ~/.bashrc
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="n">GOROOT</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">go</span>
+<span class="k">export</span><span class="w"> </span><span class="n">PATH</span><span class="o">=$</span><span class="n">GOROOT</span><span class="o">/</span><span class="n">bin</span><span class="p">:</span><span class="o">$</span><span class="n">PATH</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>source ~/.bashrc
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="k">go</span><span class="w"> </span><span class="n">version</span>
+</code></pre></div>
+
 
 
 
