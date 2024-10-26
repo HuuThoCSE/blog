@@ -65,6 +65,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#them-quyen-nguoi-dung-vao-group-docker" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -220,6 +225,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -233,8 +240,6 @@
                 
                   
 
-
-  <h1>Blockchain fabric</h1>
 
 <div class="codehilite"><pre><span></span><code><span class="n">ssh</span><span class="o">-</span><span class="k">copy</span><span class="o">-</span><span class="kt">id</span><span class="w"> </span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="n">C</span><span class="o">:/</span><span class="n">Users</span><span class="o">/</span><span class="n">huuth</span><span class="o">/</span><span class="p">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_rsa</span><span class="p">.</span><span class="n">pub</span><span class="w"> </span><span class="n">fit</span><span class="mf">@192.168.237.133</span>
 </code></pre></div>
@@ -273,6 +278,23 @@
 </code></pre></div>
 
 <div class="codehilite"><pre><span></span><code>sudo systemctl status docker
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>sudo apt install jq -y
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>docker --version
+</code></pre></div>
+
+<h1 id="them-quyen-nguoi-dung-vao-group-docker">Thêm quyền người dùng vào group docker<a class="headerlink" href="#them-quyen-nguoi-dung-vao-group-docker" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>docker<span class="w"> </span><span class="cp">${</span><span class="n">USER</span><span class="cp">}</span>
+</code></pre></div>
+
+<h1 id="reboot">Reboot<a class="headerlink" href="#reboot" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><code>sudo reboot
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>docker run hello-world
 </code></pre></div>
 
 
