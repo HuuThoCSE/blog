@@ -2,3 +2,6 @@
 ```bash
 :%d
 ```
+
+# Xuống cuối file
+- Nhấn `G`

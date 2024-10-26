@@ -9,3 +9,5 @@
 - [Docker](docker/docker-overview.md)
 - [TH1383 - Blockchain](blockchain/overview.md)
 - [TH1383 - Practice Blockchain](blockchain/practice/practice1.md)
+- [TH1390 - Phát triển IoT](iot/iot-overview.md)
+- [Windows Ubuntu](windows/windows-ubuntu.md)

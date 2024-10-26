@@ -16,7 +16,7 @@
     
     
       
-        <title>Cấu trúc - HuuTho's Blog</title>
+        <title>Kiểm tra tường lửa - HuuTho's Blog</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cau-truc" class="md-skip">
+        <a href="#kiem-tra-tuong-lua" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Cấu trúc
+              Kiểm tra tường lửa
             
           </span>
         </div>
@@ -241,33 +241,23 @@
                   
 
 
-<h1 id="cau-truc"><strong>Cấu trúc</strong><a class="headerlink" href="#cau-truc" title="Permanent link">&para;</a></h1>
-<h1 id="cach-inh-nghia"><strong>Cách định nghĩa</strong><a class="headerlink" href="#cach-inh-nghia" title="Permanent link">&para;</a></h1>
-<ul>
-<li>Blockchain</li>
-<li>Mainnet và Testnet</li>
-</ul>
-<h1 id="practical"><strong>Practical</strong><a class="headerlink" href="#practical" title="Permanent link">&para;</a></h1>
-<ul>
-<li><a href="../blockchain-fabric/">Fabric</a></li>
-</ul>
-<h1 id="wallet"><strong>Wallet</strong><a class="headerlink" href="#wallet" title="Permanent link">&para;</a></h1>
-<ul>
-<li>Metamask</li>
-</ul>
-<h1 id="ngon-ngu-lap-trinh"><strong>Ngôn ngữ lập trình</strong><a class="headerlink" href="#ngon-ngu-lap-trinh" title="Permanent link">&para;</a></h1>
-<ul>
-<li><a href="../solidity/">Solidity</a></li>
-</ul>
-<h1 id="mang-testnet"><strong>Mạng testnet</strong><a class="headerlink" href="#mang-testnet" title="Permanent link">&para;</a></h1>
-<ul>
-<li><a href="../network/sepolia/">Sepolia</a></li>
-<li><a href="../network/holesky/">Holesky</a></li>
-</ul>
-<h1 id="dich-vu"><strong>Dịch vụ</strong><a class="headerlink" href="#dich-vu" title="Permanent link">&para;</a></h1>
-<ul>
-<li><a href="../infura/">Infura</a></li>
-</ul>
+<h1 id="kiem-tra-tuong-lua">Kiểm tra tường lửa<a class="headerlink" href="#kiem-tra-tuong-lua" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>ufw<span class="w"> </span>status
+</code></pre></div>
+
+<h1 id="kiem-tra-tuong-lua_1">Kiểm tra tường lửa<a class="headerlink" href="#kiem-tra-tuong-lua_1" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">1883</span>/tcp
+</code></pre></div>
+
+<h1 id="kiem-tra-cong">Kiểm tra cổng<a class="headerlink" href="#kiem-tra-cong" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>ss<span class="w"> </span>-tuln<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">1883</span>
+</code></pre></div>
+
+<p>Trong đó:
+- <code>-t</code>: Hiển thị các cổng TCP.
+- <code>-u</code>: Hiển thị các cổng UDP.
+- <code>-l</code>: Hiển thị các cổng đang lắng nghe (listening).
+- <code>-n</code>: Hiển thị địa chỉ IP và cổng dưới dạng số (không chuyển đổi sang tên).</p>
 
 
 

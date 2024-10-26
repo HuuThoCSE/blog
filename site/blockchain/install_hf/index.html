@@ -16,7 +16,7 @@
     
     
       
-        <title>Cấu trúc - HuuTho's Blog</title>
+        <title>Cài đặt Hyperledger Fabric - HuuTho's Blog</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cau-truc" class="md-skip">
+        <a href="#cai-at-hyperledger-fabric" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Cấu trúc
+              Cài đặt Hyperledger Fabric
             
           </span>
         </div>
@@ -241,33 +241,31 @@
                   
 
 
-<h1 id="cau-truc"><strong>Cấu trúc</strong><a class="headerlink" href="#cau-truc" title="Permanent link">&para;</a></h1>
-<h1 id="cach-inh-nghia"><strong>Cách định nghĩa</strong><a class="headerlink" href="#cach-inh-nghia" title="Permanent link">&para;</a></h1>
+<h1 id="cai-at-hyperledger-fabric">Cài đặt Hyperledger Fabric<a class="headerlink" href="#cai-at-hyperledger-fabric" title="Permanent link">&para;</a></h1>
+<h1 id="luu-y">Lưu ý<a class="headerlink" href="#luu-y" title="Permanent link">&para;</a></h1>
 <ul>
-<li>Blockchain</li>
-<li>Mainnet và Testnet</li>
+<li>Chạy docker thì không dùng <code>sudo</code></li>
 </ul>
-<h1 id="practical"><strong>Practical</strong><a class="headerlink" href="#practical" title="Permanent link">&para;</a></h1>
-<ul>
-<li><a href="../blockchain-fabric/">Fabric</a></li>
-</ul>
-<h1 id="wallet"><strong>Wallet</strong><a class="headerlink" href="#wallet" title="Permanent link">&para;</a></h1>
-<ul>
-<li>Metamask</li>
-</ul>
-<h1 id="ngon-ngu-lap-trinh"><strong>Ngôn ngữ lập trình</strong><a class="headerlink" href="#ngon-ngu-lap-trinh" title="Permanent link">&para;</a></h1>
-<ul>
-<li><a href="../solidity/">Solidity</a></li>
-</ul>
-<h1 id="mang-testnet"><strong>Mạng testnet</strong><a class="headerlink" href="#mang-testnet" title="Permanent link">&para;</a></h1>
-<ul>
-<li><a href="../network/sepolia/">Sepolia</a></li>
-<li><a href="../network/holesky/">Holesky</a></li>
-</ul>
-<h1 id="dich-vu"><strong>Dịch vụ</strong><a class="headerlink" href="#dich-vu" title="Permanent link">&para;</a></h1>
-<ul>
-<li><a href="../infura/">Infura</a></li>
-</ul>
+<h2 id="tao-group-docker">Tạo group <code>docker</code><a class="headerlink" href="#tao-group-docker" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>groupadd<span class="w"> </span>docker
+</code></pre></div>
+
+<h2 id="them-nguoi-dung-hien-tai-user-vao-group-docker">Thêm người dùng hiện tại $USER vào group <code>docker</code><a class="headerlink" href="#them-nguoi-dung-hien-tai-user-vao-group-docker" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>docker<span class="w"> </span><span class="nv">$USER</span>
+</code></pre></div>
+
+<h2 id="kiem-tra-xem-nguoi-dung-a-uoc-them-vao-nhom-docker">Kiểm tra xem người dùng đã được thêm vào nhóm <code>docker</code><a class="headerlink" href="#kiem-tra-xem-nguoi-dung-a-uoc-them-vao-nhom-docker" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>cat<span class="w"> </span>/etc/group<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>docker<span class="w"> </span>
+</code></pre></div>
+
+<h2 id="cap-nhat-danh-sach-goi-cai-at-va-nang-cap-cac-goi-phan-mem-hien-tai">Cập nhật danh sách gói cài đặt và nâng cấp các gói phần mềm hiện tại<a class="headerlink" href="#cap-nhat-danh-sach-goi-cai-at-va-nang-cap-cac-goi-phan-mem-hien-tai" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>upgrade<span class="w"> </span>
+</code></pre></div>
+
+<p>Sẽ tìm nạp danh sách các gói cho tất cả các kho lưu trữ và PPA của bạn và đảm bảo rằng hệ thống đã cập nhật.)</p>
+<h2 id="cai-at-cac-yeu-cau-truoc-cho-hyperledger-composer">Cài đặt các yêu cầu trước cho Hyperledger Composer<a class="headerlink" href="#cai-at-cac-yeu-cau-truoc-cho-hyperledger-composer" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-sSLO<span class="w"> </span>https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/install-fabric.sh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>install-fabric.sh
+</code></pre></div>
 
 
 
