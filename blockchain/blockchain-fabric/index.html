@@ -433,8 +433,15 @@
 <span class="k">export</span><span class="w"> </span><span class="n">CORE_PEER_TLS_ENABLED</span><span class="o">=</span><span class="bp">true</span>
 </code></pre></div>
 
+<div class="codehilite"><pre><span></span><code>source ~/.bashrc
+</code></pre></div>
+
 <h1 id="xem-toan-bo-tai-san-trong-mot-to-chuc">Xem toàn bộ tài sản trong một tổ chức<a class="headerlink" href="#xem-toan-bo-tai-san-trong-mot-to-chuc" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><code>peer chaincode query -C mychannel -n basic -c &#39;{&quot;Args&quot;:[&quot;GetAllAssets&quot;]}&#39;
+</code></pre></div>
+
+<h1 id="truy-van-tai-san">Truy vấn tài sản<a class="headerlink" href="#truy-van-tai-san" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><code>peer chaincode query -C mychannel -n basic -c &#39;{&quot;Args&quot;:[&quot;ReadAsset&quot;,&quot;asset1&quot;]}&#39;
 </code></pre></div>
 
 
