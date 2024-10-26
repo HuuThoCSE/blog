@@ -378,7 +378,14 @@
 <div class="codehilite"><pre><span></span><code>sudo chmod +x /usr/local/bin/docker-compose
 </code></pre></div>
 
+<div class="codehilite"><pre><span></span><code>reboot
+</code></pre></div>
+
 <div class="codehilite"><pre><span></span><code>docker-compose --version
+</code></pre></div>
+
+<h2 id="khoi-ong-mang">Khởi động mạng<a class="headerlink" href="#khoi-ong-mang" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">cd</span><span class="w"> </span><span class="o">~/</span><span class="k">go</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">project1</span><span class="o">/</span><span class="n">fabric</span><span class="o">-</span><span class="n">samples</span><span class="o">/</span><span class="n">test</span><span class="o">-</span><span class="n">network</span>
 </code></pre></div>
 
 <div class="codehilite"><pre><span></span><code>./network.sh up createChannel -ca -s couchdb
@@ -386,6 +393,48 @@
 
 <h1 id="trien-khai-hop-ong-thong-minh-chaincode">Triển khai hợp đồng thông minh (chaincode)<a class="headerlink" href="#trien-khai-hop-ong-thong-minh-chaincode" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><code><span class="p">.</span><span class="o">/</span><span class="n">network</span><span class="p">.</span><span class="n">sh</span><span class="w"> </span><span class="n">deployCC</span><span class="w"> </span><span class="o">-</span><span class="n">ccn</span><span class="w"> </span><span class="n">basic</span><span class="w"> </span><span class="o">-</span><span class="n">ccp</span><span class="w"> </span><span class="p">..</span><span class="o">/</span><span class="n">asset</span><span class="o">-</span><span class="n">transfer</span><span class="o">-</span><span class="n">basic</span><span class="o">/</span><span class="n">chaincode</span><span class="o">-</span><span class="k">go</span><span class="w"> </span><span class="o">-</span><span class="n">ccl</span><span class="w"> </span><span class="k">go</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="n">cd</span><span class="w"> </span><span class="o">~/</span><span class="k">go</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">project1</span><span class="o">/</span><span class="n">fabric</span><span class="o">-</span><span class="n">samples</span><span class="o">/</span><span class="n">asset</span><span class="o">-</span><span class="n">transfer</span><span class="o">-</span><span class="n">basic</span><span class="o">/</span><span class="n">application</span><span class="o">-</span><span class="n">gateway</span><span class="o">-</span><span class="n">javascript</span><span class="o">/</span><span class="n">src</span><span class="w"> </span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="n">npm</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="nv">@grpc</span><span class="o">/</span><span class="n">grpc</span><span class="o">-</span><span class="n">js</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>sudo apt install build-essential -y
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="n">npm</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="nv">@hyperledger</span><span class="o">/</span><span class="n">fabric</span><span class="o">-</span><span class="n">gateway</span>
+</code></pre></div>
+
+<h2 id="tao-tai-san-mau">Tạo tài sản mẫu<a class="headerlink" href="#tao-tai-san-mau" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>node app.js
+</code></pre></div>
+
+<h2 id="cai-at-peer-e-truy-van-tai-san">Cài đặt peer để truy vấn tài sản<a class="headerlink" href="#cai-at-peer-e-truy-van-tai-san" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>npm install --save-dev --ignore-scripts install-peers
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="n">vi</span><span class="w"> </span><span class="o">~/.</span><span class="n">bashrc</span>
+
+<span class="k">export</span><span class="w"> </span><span class="n">PATH</span><span class="o">=$</span><span class="n">PATH</span><span class="p">:</span><span class="o">$</span><span class="n">HOME</span><span class="o">/</span><span class="n">fabric</span><span class="o">-</span><span class="n">samples</span><span class="o">/</span><span class="n">bin</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="n">HOME</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">fit</span>
+<span class="k">export</span><span class="w"> </span><span class="n">GOROOT</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">go</span>
+<span class="k">export</span><span class="w"> </span><span class="n">PATH</span><span class="o">=$</span><span class="n">GOROOT</span><span class="o">/</span><span class="n">bin</span><span class="p">:</span><span class="o">$</span><span class="n">PATH</span>
+<span class="k">export</span><span class="w"> </span><span class="n">PATH</span><span class="o">=$</span><span class="n">PATH</span><span class="p">:</span><span class="o">$</span><span class="n">HOME</span><span class="o">/</span><span class="n">fabric</span><span class="o">-</span><span class="n">samples</span><span class="o">/</span><span class="n">bin</span>
+
+<span class="k">export</span><span class="w"> </span><span class="n">FABRIC_CFG_PATH</span><span class="o">=$</span><span class="n">HOME</span><span class="o">/</span><span class="n">go</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">project1</span><span class="o">/</span><span class="n">fabric</span><span class="o">-</span><span class="n">samples</span><span class="o">/</span><span class="n">config</span><span class="o">/</span>
+<span class="k">export</span><span class="w"> </span><span class="n">CORE_PEER_LOCALMSPID</span><span class="o">=</span><span class="s2">&quot;Org1MSP&quot;</span>
+<span class="k">export</span><span class="w"> </span><span class="n">CORE_PEER_MSPCONFIGPATH</span><span class="o">=$</span><span class="n">HOME</span><span class="o">/</span><span class="n">go</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">project1</span><span class="o">/</span><span class="n">fabric</span><span class="o">-</span><span class="n">samples</span><span class="o">/</span><span class="n">test</span><span class="o">-</span><span class="n">network</span><span class="o">/</span><span class="n">organizations</span><span class="o">/</span><span class="n">peerOrganizations</span><span class="o">/</span><span class="n">org1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">Admin</span><span class="err">@</span><span class="n">org1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">msp</span>
+<span class="k">export</span><span class="w"> </span><span class="n">CORE_PEER_ADDRESS</span><span class="o">=</span><span class="n">localhost</span><span class="p">:</span><span class="mi">7051</span>
+<span class="k">export</span><span class="w"> </span><span class="n">CORE_PEER_TLS_ROOTCERT_FILE</span><span class="o">=$</span><span class="n">HOME</span><span class="o">/</span><span class="n">go</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">project1</span><span class="o">/</span><span class="n">fabric</span><span class="o">-</span><span class="n">samples</span><span class="o">/</span><span class="n">test</span><span class="o">-</span><span class="n">network</span><span class="o">/</span><span class="n">organizations</span><span class="o">/</span><span class="n">peerOrganizations</span><span class="o">/</span><span class="n">org1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">peers</span><span class="o">/</span><span class="n">peer0</span><span class="o">.</span><span class="n">org1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">tls</span><span class="o">/</span><span class="n">ca</span><span class="o">.</span><span class="n">crt</span>
+<span class="k">export</span><span class="w"> </span><span class="n">CORE_PEER_TLS_ENABLED</span><span class="o">=</span><span class="bp">true</span>
+</code></pre></div>
+
+<h1 id="xem-toan-bo-tai-san-trong-mot-to-chuc">Xem toàn bộ tài sản trong một tổ chức<a class="headerlink" href="#xem-toan-bo-tai-san-trong-mot-to-chuc" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><code>peer chaincode query -C mychannel -n basic -c &#39;{&quot;Args&quot;:[&quot;GetAllAssets&quot;]}&#39;
 </code></pre></div>
 
 
