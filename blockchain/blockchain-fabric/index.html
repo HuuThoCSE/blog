@@ -317,9 +317,10 @@
 <h2 id="neu-la-may-jetsion">Nếu là máy jetsion<a class="headerlink" href="#neu-la-may-jetsion" title="Permanent link">&para;</a></h2>
 <p>Tải của <code>arm</code></p>
 <h2 id="go-cai-at-go-cu">Gỡ cài đặt <code>go</code> cũ<a class="headerlink" href="#go-cai-at-go-cu" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code><span class="n">rm</span><span class="w"> </span><span class="o">-</span><span class="n">rf</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="k">go</span>
+<div class="codehilite"><pre><span></span><code><span class="n">sudo</span><span class="w"> </span><span class="n">rm</span><span class="w"> </span><span class="o">-</span><span class="n">rf</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="k">go</span>
 </code></pre></div>
 
+<h3 id="cai-lai-go">Cài lại go<a class="headerlink" href="#cai-lai-go" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code>sudo tar -C /usr/local -xzf go1.23.2.linux-arm64.tar.gz
 </code></pre></div>
 
@@ -442,6 +443,32 @@
 
 <h1 id="truy-van-tai-san">Truy vấn tài sản<a class="headerlink" href="#truy-van-tai-san" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><code>peer chaincode query -C mychannel -n basic -c &#39;{&quot;Args&quot;:[&quot;ReadAsset&quot;,&quot;asset1&quot;]}&#39;
+</code></pre></div>
+
+<h1 id="tao-to-chuc-moi">Tạo tổ chức mới<a class="headerlink" href="#tao-to-chuc-moi" title="Permanent link">&para;</a></h1>
+<h2 id="tao-folder">Tạo folder<a class="headerlink" href="#tao-folder" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">mkdir</span><span class="w"> </span><span class="o">~/</span><span class="k">go</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">project1</span><span class="o">/</span><span class="n">fabric</span><span class="o">-</span><span class="n">samples</span><span class="o">/</span><span class="n">test</span><span class="o">-</span><span class="n">network</span><span class="o">/</span><span class="n">addOrg3</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>cd addOrg3
+
+./addOrg3.sh generate -c mychannel
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="n">vi</span><span class="w"> </span><span class="o">~/.</span><span class="n">bashrc</span>
+
+<span class="k">export</span><span class="w"> </span><span class="n">CORE_PEER_LOCALMSPID</span><span class="o">=</span><span class="s2">&quot;Org3MSP&quot;</span>
+<span class="k">export</span><span class="w"> </span><span class="n">CORE_PEER_ADDRESS</span><span class="o">=</span><span class="n">localhost</span><span class="p">:</span><span class="mi">9051</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>source ~/.bashrc
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="p">.</span><span class="o">/</span><span class="n">network</span><span class="p">.</span><span class="n">sh</span><span class="w"> </span><span class="n">deployCC</span><span class="w"> </span><span class="o">-</span><span class="n">ccn</span><span class="w"> </span><span class="n">basic</span><span class="w"> </span><span class="o">-</span><span class="n">ccp</span><span class="w"> </span><span class="p">..</span><span class="o">/</span><span class="n">asset</span><span class="o">-</span><span class="n">transfer</span><span class="o">-</span><span class="n">basic</span><span class="o">/</span><span class="n">chaincode</span><span class="o">-</span><span class="k">go</span><span class="w"> </span><span class="o">-</span><span class="n">ccl</span><span class="w"> </span><span class="k">go</span>
+</code></pre></div>
+
+<h2 id="kiem-tra-xac-nhan">Kiếm tra xác nhận<a class="headerlink" href="#kiem-tra-xac-nhan" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>peer chaincode query -C mychannel -n basic -c &#39;{&quot;Args&quot;:[&quot;GetAllAssets&quot;]}&#39;
 </code></pre></div>
 
 
