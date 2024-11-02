@@ -471,6 +471,93 @@
 <div class="codehilite"><pre><span></span><code>peer chaincode query -C mychannel -n basic -c &#39;{&quot;Args&quot;:[&quot;GetAllAssets&quot;]}&#39;
 </code></pre></div>
 
+<h1 id="tao-chaincode-viet-chaincode-tren-hyperledger-fabric-a-cai-at"><strong>TẠO CHAINCODE (Viết Chaincode trên Hyperledger Fabric đã cài đặt)</strong><a class="headerlink" href="#tao-chaincode-viet-chaincode-tren-hyperledger-fabric-a-cai-at" title="Permanent link">&para;</a></h1>
+<h2 id="trong-thu-muc-fabric-sample-tao-thu-muc-mychaincode">Trong thư mục fabric-sample tạo thư mục mychaincode<a class="headerlink" href="#trong-thu-muc-fabric-sample-tao-thu-muc-mychaincode" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">cd</span><span class="w"> </span><span class="err">$</span><span class="n">HOME</span><span class="o">/</span><span class="k">go</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">project1</span>
+<span class="n">mkdir</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="n">fabric</span><span class="o">-</span><span class="n">samples</span><span class="o">/</span><span class="n">chaincode</span><span class="o">/</span><span class="n">mychaincode</span>
+</code></pre></div>
+
+<h2 id="di-chuyen-vao-thu-muc-mychaincode-tao-module-go-gomod">Di chuyển vào thư mục mychaincode tạo module Go (go.mod)<a class="headerlink" href="#di-chuyen-vao-thu-muc-mychaincode-tao-module-go-gomod" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>cd fabric-samples/chaincode/mychaincode
+</code></pre></div>
+
+<p>(rm go.mod)</p>
+<div class="codehilite"><pre><span></span><code><span class="k">go</span><span class="w"> </span><span class="k">mod</span><span class="w"> </span><span class="n">init</span><span class="w"> </span><span class="n">mychaincode</span>
+</code></pre></div>
+
+<h2 id="tai-va-quan-ly-cac-dependencies-cho-du-an">Tải và quản lý các dependencies cho dự án:<a class="headerlink" href="#tai-va-quan-ly-cac-dependencies-cho-du-an" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="k">go</span><span class="w"> </span><span class="k">mod</span><span class="w"> </span><span class="n">tidy</span>
+</code></pre></div>
+
+<h2 id="ong-goi-chaincode">Đóng gói chaincode<a class="headerlink" href="#ong-goi-chaincode" title="Permanent link">&para;</a></h2>
+<p>Sau khi đã khởi tạo go.mod và tải tất cả các dependencies, quay lại thư mục test-network và thử lại quá trình đóng gói chaincode.</p>
+<div class="codehilite"><pre><span></span><code>cd ../../test-network
+</code></pre></div>
+
+<h2 id="ong-goi">Đóng gói<a class="headerlink" href="#ong-goi" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="nx">peer</span><span class="w"> </span><span class="nx">lifecycle</span><span class="w"> </span><span class="nx">chaincode</span><span class="w"> </span><span class="kn">package</span><span class="w"> </span><span class="nx">mychaincode</span><span class="p">.</span><span class="nx">tar</span><span class="p">.</span><span class="nx">gz</span><span class="w"> </span>\
+<span class="o">--</span><span class="nx">path</span><span class="w"> </span><span class="p">..</span><span class="o">/</span><span class="nx">chaincode</span><span class="o">/</span><span class="nx">mychaincode</span><span class="w"> </span>\
+<span class="o">--</span><span class="nx">lang</span><span class="w"> </span><span class="nx">golang</span><span class="w"> </span>\
+<span class="o">--</span><span class="nx">label</span><span class="w"> </span><span class="nx">mychaincode_1</span><span class="m m-Double">.0</span>
+</code></pre></div>
+
+<p>Lệnh này sẽ tạo file mychaincode.tar.gz cho chaincode của bạn.</p>
+<h2 id="cai-at-chaincode-len-peer-nhu-truoc-ay">Cài đặt chaincode lên peer như trước đây:<a class="headerlink" href="#cai-at-chaincode-len-peer-nhu-truoc-ay" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>peer lifecycle chaincode install mychaincode.tar.gz
+</code></pre></div>
+
+<p><strong><em>(chờ tầm 5-6 phút)</em></strong></p>
+<h2 id="deploy-chaincode">Deploy chaincode<a class="headerlink" href="#deploy-chaincode" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="p">.</span><span class="o">/</span><span class="n">network</span><span class="p">.</span><span class="n">sh</span><span class="w"> </span><span class="n">deployCC</span><span class="w"> </span><span class="err">\</span>
+<span class="o">-</span><span class="n">ccn</span><span class="w"> </span><span class="n">mychaincode</span><span class="w"> </span><span class="err">\</span>
+<span class="o">-</span><span class="n">ccp</span><span class="w"> </span><span class="p">..</span><span class="o">/</span><span class="n">chaincode</span><span class="o">/</span><span class="n">mychaincode</span><span class="w"> </span><span class="err">\</span>
+<span class="o">-</span><span class="n">ccl</span><span class="w"> </span><span class="k">go</span>
+</code></pre></div>
+
+<h2 id="kiem-tra-uong-dan-tlsrootcertfiles-cua-peer-ang-tuong-tac">Kiểm tra đường dẫn tlsRootCertFiles của peer đang tương tác<a class="headerlink" href="#kiem-tra-uong-dan-tlsrootcertfiles-cua-peer-ang-tuong-tac" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>ls organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/
+</code></pre></div>
+
+<h2 id="kiem-tra-uong-dan-en-tap-tin-tlscaexamplecom-certpem">Kiểm tra đường dẫn đến tập tin tlsca.example.com-cert.pem<a class="headerlink" href="#kiem-tra-uong-dan-en-tap-tin-tlscaexamplecom-certpem" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>ls organizations/ordererOrganizations/example.com/msp/tlscacerts/
+</code></pre></div>
+
+<h1 id="goi-chaincode-a-trien-khai">Gọi chaincode đã triển khai<a class="headerlink" href="#goi-chaincode-a-trien-khai" title="Permanent link">&para;</a></h1>
+<p>Lưu ý: chắc chắn rằng dữ liệu được đồng bộ tới tất cả các peer.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">peer</span><span class="w"> </span><span class="n">chaincode</span><span class="w"> </span><span class="n">invoke</span><span class="w"> </span><span class="err">\</span>
+<span class="w">    </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="mf">127.0.0.1</span><span class="err">:</span><span class="mi">7050</span><span class="w"> </span><span class="err">\</span>
+<span class="w">    </span><span class="o">--</span><span class="n">ordererTLSHostnameOverride</span><span class="w"> </span><span class="n">orderer</span><span class="p">.</span><span class="n">example</span><span class="p">.</span><span class="n">com</span><span class="w"> </span><span class="err">\</span>
+<span class="w">    </span><span class="o">--</span><span class="n">tls</span><span class="w"> </span><span class="err">\</span>
+<span class="w">    </span><span class="o">--</span><span class="n">cafile</span><span class="w"> </span><span class="err">$</span><span class="n">HOME</span><span class="o">/</span><span class="k">go</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">project1</span><span class="o">/</span><span class="n">fabric</span><span class="o">-</span><span class="n">samples</span><span class="o">/</span><span class="n">test</span><span class="o">-</span><span class="n">network</span><span class="o">/</span><span class="n">organizations</span><span class="o">/</span><span class="n">ordererOrganizations</span><span class="o">/</span><span class="n">example</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">msp</span><span class="o">/</span><span class="n">tlscacerts</span><span class="o">/</span><span class="n">tlsca</span><span class="p">.</span><span class="n">example</span><span class="p">.</span><span class="n">com</span><span class="o">-</span><span class="n">cert</span><span class="p">.</span><span class="n">pem</span><span class="w"> </span><span class="err">\</span>
+<span class="w">    </span><span class="o">-</span><span class="n">C</span><span class="w"> </span><span class="n">mychannel</span><span class="w"> </span><span class="err">\</span>
+<span class="w">    </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="n">mychaincode</span><span class="w"> </span><span class="err">\</span>
+<span class="w">    </span><span class="o">--</span><span class="n">peerAddresses</span><span class="w"> </span><span class="nl">localhost</span><span class="p">:</span><span class="mi">7051</span><span class="w"> </span><span class="err">\</span>
+<span class="w">    </span><span class="o">--</span><span class="n">tlsRootCertFiles</span><span class="w"> </span><span class="err">$</span><span class="n">HOME</span><span class="o">/</span><span class="k">go</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">project1</span><span class="o">/</span><span class="n">fabric</span><span class="o">-</span><span class="n">samples</span><span class="o">/</span><span class="n">test</span><span class="o">-</span><span class="n">network</span><span class="o">/</span><span class="n">organizations</span><span class="o">/</span><span class="n">peerOrganizations</span><span class="o">/</span><span class="n">org1</span><span class="p">.</span><span class="n">example</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">peers</span><span class="o">/</span><span class="n">peer0</span><span class="p">.</span><span class="n">org1</span><span class="p">.</span><span class="n">example</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">tls</span><span class="o">/</span><span class="n">ca</span><span class="p">.</span><span class="n">crt</span><span class="w"> </span><span class="err">\</span>
+<span class="w">    </span><span class="o">--</span><span class="n">peerAddresses</span><span class="w"> </span><span class="nl">localhost</span><span class="p">:</span><span class="mi">9051</span><span class="w"> </span><span class="err">\</span>
+<span class="w">    </span><span class="o">--</span><span class="n">tlsRootCertFiles</span><span class="w"> </span><span class="err">$</span><span class="n">HOME</span><span class="o">/</span><span class="k">go</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">project1</span><span class="o">/</span><span class="n">fabric</span><span class="o">-</span><span class="n">samples</span><span class="o">/</span><span class="n">test</span><span class="o">-</span><span class="n">network</span><span class="o">/</span><span class="n">organizations</span><span class="o">/</span><span class="n">peerOrganizations</span><span class="o">/</span><span class="n">org2</span><span class="p">.</span><span class="n">example</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">peers</span><span class="o">/</span><span class="n">peer0</span><span class="p">.</span><span class="n">org2</span><span class="p">.</span><span class="n">example</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">tls</span><span class="o">/</span><span class="n">ca</span><span class="p">.</span><span class="n">crt</span><span class="w"> </span><span class="err">\</span>
+<span class="w">    </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="s1">&#39;{&quot;Args&quot;:[&quot;Set&quot;,&quot;key1&quot;,&quot;value1&quot;]}&#39;</span>
+</code></pre></div>
+
+<h2 id="lay-gia-tri-cua-key-value">Lấy giá trị của key, value<a class="headerlink" href="#lay-gia-tri-cua-key-value" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>peer chaincode query \
+-C mychannel \
+-n mychaincode \
+-c &#39;{&quot;Args&quot;:[&quot;Get&quot;, &quot;key1&quot;]}&#39;
+</code></pre></div>
+
+<h2 id="truy-xuat-khoi-moi-nhat">Truy xuất khối mới nhất<a class="headerlink" href="#truy-xuat-khoi-moi-nhat" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">peer</span><span class="w"> </span><span class="n">channel</span><span class="w"> </span><span class="k">fetch</span><span class="w"> </span><span class="n">newest</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">newest_block</span><span class="p">.</span><span class="n">block</span><span class="w"> </span><span class="err">\</span>
+<span class="w">    </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="mf">127.0.0.1</span><span class="err">:</span><span class="mi">7050</span><span class="w"> </span><span class="err">\</span>
+<span class="w">    </span><span class="o">--</span><span class="n">ordererTLSHostnameOverride</span><span class="w"> </span><span class="n">orderer</span><span class="p">.</span><span class="n">example</span><span class="p">.</span><span class="n">com</span><span class="w"> </span><span class="err">\</span>
+<span class="w">    </span><span class="o">--</span><span class="n">tls</span><span class="w"> </span><span class="err">\</span>
+<span class="w">    </span><span class="o">--</span><span class="n">cafile</span><span class="w"> </span><span class="err">$</span><span class="n">HOME</span><span class="o">/</span><span class="k">go</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">project1</span><span class="o">/</span><span class="n">fabric</span><span class="o">-</span><span class="n">samples</span><span class="o">/</span><span class="n">test</span><span class="o">-</span><span class="n">network</span><span class="o">/</span><span class="n">organizations</span><span class="o">/</span><span class="n">ordererOrganizations</span><span class="o">/</span><span class="n">example</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">msp</span><span class="o">/</span><span class="n">tlscacerts</span><span class="o">/</span><span class="n">tlsca</span><span class="p">.</span><span class="n">example</span><span class="p">.</span><span class="n">com</span><span class="o">-</span><span class="n">cert</span><span class="p">.</span><span class="n">pem</span><span class="w"> </span><span class="err">\</span>
+<span class="w">    </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="n">mychannel</span>
+</code></pre></div>
+
+<h2 id="xem-thong-tin-giao-dich">Xem thông tin giao dịch:<a class="headerlink" href="#xem-thong-tin-giao-dich" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>cat newest_block.json
+</code></pre></div>
+
 
 
 
