@@ -1,3 +1,6 @@
+# Another
+- [Trick](trick/trick-overview.md)
+
 # 23-24 Học kỳ HKH
 
 - [Laravel](laravel/overview.md)

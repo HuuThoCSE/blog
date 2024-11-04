@@ -94,14 +94,16 @@ wget https://go.dev/dl/go1.23.2.linux-amd64.tar.gz
 ```
 sudo tar -C /usr/local -xzf go1.23.2.linux-amd64.tar.gz
 ```
+
 ## Nếu là máy jetsion
 Tải của `arm`
 
 ## Gỡ cài đặt `go` cũ
 ```
-rm -rf /usr/local/go
+sudo rm -rf /usr/local/go
 ```
 
+### Cài lại go
 ```
 sudo tar -C /usr/local -xzf go1.23.2.linux-arm64.tar.gz
 ```
@@ -150,11 +152,11 @@ ls
 
 ```
 cd ~/go/src/project1/fabric-samples/test-network
-./network.sh down
+sudo ./network.sh down
 ```
 
 ```
-./network.sh up
+sudo ./network.sh up
 ```
 
 # Cập nhật docker compose
@@ -193,7 +195,7 @@ cd ~/go/src/project1/fabric-samples/test-network
 ```
 
 ```
-./network.sh up createChannel -ca -s couchdb
+sudo ./network.sh up createChannel -ca -s couchdb
 ```
 
 # Triển khai hợp đồng thông minh (chaincode)
@@ -294,4 +296,112 @@ source ~/.bashrc
 ## Kiếm tra xác nhận 
 ```
 peer chaincode query -C mychannel -n basic -c '{"Args":["GetAllAssets"]}'
+```
+
+
+# **TẠO CHAINCODE (Viết Chaincode trên Hyperledger Fabric đã cài đặt)**
+## Trong thư mục fabric-sample tạo thư mục mychaincode
+```
+cd $HOME/go/src/project1
+mkdir -p fabric-samples/chaincode/mychaincode
+```
+
+## Di chuyển vào thư mục mychaincode tạo module Go (go.mod)
+```
+cd fabric-samples/chaincode/mychaincode
+```
+
+(rm go.mod)
+
+```
+go mod init mychaincode
+```
+
+## Tải và quản lý các dependencies cho dự án:
+```
+go mod tidy
+```
+
+## Đóng gói chaincode
+Sau khi đã khởi tạo go.mod và tải tất cả các dependencies, quay lại thư mục test-network và thử lại quá trình đóng gói chaincode.
+```
+cd ../../test-network
+```
+
+## Đóng gói
+```
+peer lifecycle chaincode package mychaincode.tar.gz \
+--path ../chaincode/mychaincode \
+--lang golang \
+--label mychaincode_1.0
+```
+Lệnh này sẽ tạo file mychaincode.tar.gz cho chaincode của bạn.
+
+## Cài đặt chaincode lên peer như trước đây:
+```
+peer lifecycle chaincode install mychaincode.tar.gz
+```
+***(chờ tầm 5-6 phút)***
+
+## Deploy chaincode
+```
+./network.sh deployCC \
+-ccn mychaincode \
+-ccp ../chaincode/mychaincode \
+-ccl go
+```
+
+## Kiểm tra đường dẫn tlsRootCertFiles của peer đang tương tác
+```
+ls organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/
+```
+
+## Kiểm tra đường dẫn đến tập tin tlsca.example.com-cert.pem
+```
+ls organizations/ordererOrganizations/example.com/msp/tlscacerts/
+```
+
+# Gọi chaincode đã triển khai 
+Lưu ý: chắc chắn rằng dữ liệu được đồng bộ tới tất cả các peer.
+```
+peer chaincode invoke \
+    -o 127.0.0.1:7050 \
+    --ordererTLSHostnameOverride orderer.example.com \
+    --tls \
+    --cafile $HOME/go/src/project1/fabric-samples/test-network/organizations/ordererOrganizations/example.com/msp/tlscacerts/tlsca.example.com-cert.pem \
+    -C mychannel \
+    -n mychaincode \
+    --peerAddresses localhost:7051 \
+    --tlsRootCertFiles $HOME/go/src/project1/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt \
+    --peerAddresses localhost:9051 \
+    --tlsRootCertFiles $HOME/go/src/project1/fabric-samples/test-network/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt \
+    -c '{"Args":["Set","key1","value1"]}'
+```
+
+## Lấy giá trị của key, value
+```
+peer chaincode query \
+-C mychannel \
+-n mychaincode \
+-c '{"Args":["Get", "key1"]}'
+```
+
+## Truy xuất khối mới nhất
+```
+peer channel fetch newest ./newest_block.block \
+    -o 127.0.0.1:7050 \
+    --ordererTLSHostnameOverride orderer.example.com \
+    --tls \
+    --cafile $HOME/go/src/project1/fabric-samples/test-network/organizations/ordererOrganizations/example.com/msp/tlscacerts/tlsca.example.com-cert.pem \
+    -c mychannel
+```
+
+## Đổi block xuất ra file JSON
+```
+configtxlator proto_decode --input newest_block.block --type common.Block --output newest_block.json
+```
+
+## Xem thông tin giao dịch: 
+```
+cat newest_block.json
 ```

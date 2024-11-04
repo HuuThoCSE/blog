@@ -1,0 +1,1 @@
+- [Trick bin](trick-bin.md)
