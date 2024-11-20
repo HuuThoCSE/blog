@@ -1,1 +1,2 @@
 - [Trick bin](trick-bin.md)
+- [Trick key](trick-key.md)

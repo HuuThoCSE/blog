@@ -13,8 +13,12 @@ ls /etc/netplan/
 sudo apt install vim
 ```
 
+```
+ls /etc/netplan/
+```
+
 ```cmd
-vim /etc/netplan/50-cloud-init.yaml
+sudo vim /etc/netplan/50-cloud-init.yaml
 ```
 
 Sử dụng mặt định `default routes`
@@ -33,6 +37,21 @@ network:
               addresses:
                 - 8.8.8.8
                 - 8.8.4.4
+```
+
+```
+network:
+  version: 2
+  ethernets:
+    <tên_giao_diện_mạng>:
+      dhcp4: no
+      addresses:
+        - 192.168.237.10/24
+      gateway4: 192.168.237.2
+      nameservers:
+        addresses:
+          - 8.8.8.8
+          - 8.8.4.4
 ```
 
 `ESC` và `:wq`
