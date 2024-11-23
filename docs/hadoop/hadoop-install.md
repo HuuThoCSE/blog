@@ -20,10 +20,33 @@ sudo vim /usr/local/hadoop/etc/hadoop/hdfs-site.xml
 ```
 
 ```
-<property>
-    <name>dfs.namenode.rpc-address</name>
-    <value>node1:9000</value>
-</property>
+<configuration>
+
+    <!-- Cấu hình số lượng bản sao của block -->
+    <property>
+        <name>dfs.replication</name>
+        <value>1</value>
+    </property>
+
+    <!-- Địa chỉ RPC mà NameNode sử dụng -->
+    <property>
+        <name>dfs.namenode.rpc-address</name>
+        <value>node1:9000</value>
+    </property>
+
+    <!-- Đường dẫn lưu trữ metadata cho NameNode -->
+    <property>
+        <name>dfs.namenode.name.dir</name>
+        <value>file:///usr/local/hadoop_tmp/hdfs/namenode</value>
+    </property>
+
+    <!-- Đường dẫn lưu trữ dữ liệu cho DataNode -->
+    <property>
+        <name>dfs.datanode.data.dir</name>
+        <value>file:///usr/local/hadoop_tmp/hdfs/datanode</value>
+    </property>
+
+</configuration>
 ```
 
 # Worker or Slave
