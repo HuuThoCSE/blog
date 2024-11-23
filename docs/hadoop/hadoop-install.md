@@ -25,7 +25,7 @@ sudo vim /usr/local/hadoop/etc/hadoop/hdfs-site.xml
     <!-- Cấu hình số lượng bản sao của block -->
     <property>
         <name>dfs.replication</name>
-        <value>1</value>
+        <value>3</value>
     </property>
 
     <!-- Địa chỉ RPC mà NameNode sử dụng -->
