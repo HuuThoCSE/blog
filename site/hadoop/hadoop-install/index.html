@@ -16,7 +16,7 @@
     
     
       
-        <title>Worker or Slave - HuuTho's Blog</title>
+        <title>File edit - HuuTho's Blog</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#worker-or-slave" class="md-skip">
+        <a href="#file-edit" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Worker or Slave
+              File edit
             
           </span>
         </div>
@@ -228,6 +228,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core-sitexml" class="md-nav__link">
+    <span class="md-ellipsis">
+      core-site.xml
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hdfs-sitexml" class="md-nav__link">
+    <span class="md-ellipsis">
+      hdfs-site.xml
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -240,6 +266,30 @@
                 
                   
 
+
+<h1 id="file-edit">File edit<a class="headerlink" href="#file-edit" title="Permanent link">&para;</a></h1>
+<h2 id="core-sitexml">core-site.xml<a class="headerlink" href="#core-sitexml" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;configuration&gt;</span>
+<span class="w">    </span><span class="nt">&lt;property&gt;</span>
+<span class="w">        </span><span class="nt">&lt;name&gt;</span>fs.defaultFS<span class="nt">&lt;/name&gt;</span>
+<span class="w">        </span><span class="nt">&lt;value&gt;</span>hdfs://192.168.237.131:9000<span class="nt">&lt;/value&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/property&gt;</span>
+<span class="w">    </span><span class="nt">&lt;property&gt;</span>
+<span class="w">        </span><span class="nt">&lt;name&gt;</span>hadoop.http.staticuser.user<span class="nt">&lt;/name&gt;</span>
+<span class="w">        </span><span class="nt">&lt;value&gt;</span>hdoop<span class="nt">&lt;/value&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/property&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</code></pre></div>
+
+<h2 id="hdfs-sitexml">hdfs-site.xml<a class="headerlink" href="#hdfs-sitexml" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">sudo vim /usr/local/hadoop/etc/hadoop/hdfs-site.xml</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;property&gt;</span>
+<span class="w">    </span><span class="nt">&lt;name&gt;</span>dfs.namenode.rpc-address<span class="nt">&lt;/name&gt;</span>
+<span class="w">    </span><span class="nt">&lt;value&gt;</span>node1:9000<span class="nt">&lt;/value&gt;</span>
+<span class="nt">&lt;/property&gt;</span>
+</code></pre></div>
 
 <h1 id="worker-or-slave">Worker or Slave<a class="headerlink" href="#worker-or-slave" title="Permanent link">&para;</a></h1>
 <p>Hadoop 3.x và mới hơn: Tệp được đặt tên là workers.</p>

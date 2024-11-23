@@ -1,4 +1,30 @@
 
+# File edit
+## core-site.xml
+```
+<configuration>
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://192.168.237.131:9000</value>
+    </property>
+    <property>
+        <name>hadoop.http.staticuser.user</name>
+        <value>hdoop</value>
+    </property>
+</configuration>
+```
+
+## hdfs-site.xml
+```
+sudo vim /usr/local/hadoop/etc/hadoop/hdfs-site.xml
+```
+
+```
+<property>
+    <name>dfs.namenode.rpc-address</name>
+    <value>node1:9000</value>
+</property>
+```
 
 # Worker or Slave
 Hadoop 3.x và mới hơn: Tệp được đặt tên là workers.
