@@ -244,7 +244,7 @@
 <h1 id="worker-or-slave">Worker or Slave<a class="headerlink" href="#worker-or-slave" title="Permanent link">&para;</a></h1>
 <p>Hadoop 3.x và mới hơn: Tệp được đặt tên là workers.</p>
 <p>Hadoop 2.x và cũ hơn: Tệp được đặt tên là slaves.</p>
-<div class="codehilite"><pre><span></span><code>sudo nano vi $HADOOP_HOME/etc/hadoop/workers
+<div class="codehilite"><pre><span></span><code>sudo vi $HADOOP_HOME/etc/hadoop/workers
 
 $HADOOP_HOME/etc/hadoop/slaves
 </code></pre></div>
@@ -260,7 +260,7 @@ node2
 <div class="codehilite"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="n">JAVA_HOME</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">jvm</span><span class="o">/</span><span class="n">java</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="n">openjdk</span><span class="o">-</span><span class="n">amd64</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code>nano /usr/local/hadoop/etc/hadoop/hadoop-env.sh
+<div class="codehilite"><pre><span></span><code>sudo vi /usr/local/hadoop/etc/hadoop/hadoop-env.sh
 </code></pre></div>
 
 <div class="codehilite"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="n">JAVA_HOME</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">jvm</span><span class="o">/</span><span class="n">java</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="n">openjdk</span><span class="o">-</span><span class="n">amd64</span>

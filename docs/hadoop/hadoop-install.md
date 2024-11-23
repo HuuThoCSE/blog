@@ -6,7 +6,7 @@ Hadoop 3.x và mới hơn: Tệp được đặt tên là workers.
 Hadoop 2.x và cũ hơn: Tệp được đặt tên là slaves.
 
 ```
-sudo nano vi $HADOOP_HOME/etc/hadoop/workers
+sudo vi $HADOOP_HOME/etc/hadoop/workers
 
 $HADOOP_HOME/etc/hadoop/slaves
 ```
@@ -26,7 +26,7 @@ export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 ```
 
 ```
-nano /usr/local/hadoop/etc/hadoop/hadoop-env.sh
+sudo vi /usr/local/hadoop/etc/hadoop/hadoop-env.sh
 ```
 
 ```
