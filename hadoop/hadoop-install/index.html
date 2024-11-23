@@ -285,10 +285,33 @@
 <div class="codehilite"><pre><span></span><code><span class="n">sudo vim /usr/local/hadoop/etc/hadoop/hdfs-site.xml</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;property&gt;</span>
-<span class="w">    </span><span class="nt">&lt;name&gt;</span>dfs.namenode.rpc-address<span class="nt">&lt;/name&gt;</span>
-<span class="w">    </span><span class="nt">&lt;value&gt;</span>node1:9000<span class="nt">&lt;/value&gt;</span>
-<span class="nt">&lt;/property&gt;</span>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;configuration&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- Cấu hình số lượng bản sao của block --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;property&gt;</span>
+<span class="w">        </span><span class="nt">&lt;name&gt;</span>dfs.replication<span class="nt">&lt;/name&gt;</span>
+<span class="w">        </span><span class="nt">&lt;value&gt;</span>1<span class="nt">&lt;/value&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/property&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- Địa chỉ RPC mà NameNode sử dụng --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;property&gt;</span>
+<span class="w">        </span><span class="nt">&lt;name&gt;</span>dfs.namenode.rpc-address<span class="nt">&lt;/name&gt;</span>
+<span class="w">        </span><span class="nt">&lt;value&gt;</span>node1:9000<span class="nt">&lt;/value&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/property&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- Đường dẫn lưu trữ metadata cho NameNode --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;property&gt;</span>
+<span class="w">        </span><span class="nt">&lt;name&gt;</span>dfs.namenode.name.dir<span class="nt">&lt;/name&gt;</span>
+<span class="w">        </span><span class="nt">&lt;value&gt;</span>file:///usr/local/hadoop_tmp/hdfs/namenode<span class="nt">&lt;/value&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/property&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- Đường dẫn lưu trữ dữ liệu cho DataNode --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;property&gt;</span>
+<span class="w">        </span><span class="nt">&lt;name&gt;</span>dfs.datanode.data.dir<span class="nt">&lt;/name&gt;</span>
+<span class="w">        </span><span class="nt">&lt;value&gt;</span>file:///usr/local/hadoop_tmp/hdfs/datanode<span class="nt">&lt;/value&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/property&gt;</span>
+
+<span class="nt">&lt;/configuration&gt;</span>
 </code></pre></div>
 
 <h1 id="worker-or-slave">Worker or Slave<a class="headerlink" href="#worker-or-slave" title="Permanent link">&para;</a></h1>
