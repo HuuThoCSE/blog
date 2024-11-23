@@ -16,7 +16,7 @@
     
     
       
-        <title>Hadoop install - HuuTho's Blog</title>
+        <title>Java - HuuTho's Blog</title>
       
     
     
@@ -65,6 +65,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#java" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -97,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Hadoop install
+              Java
             
           </span>
         </div>
@@ -220,6 +225,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -234,8 +241,14 @@
                   
 
 
-  <h1>Hadoop install</h1>
+<h1 id="java">Java<a class="headerlink" href="#java" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><code>readlink -f $(which java)
+</code></pre></div>
 
+<div class="codehilite"><pre><span></span><code>JAVA_HOME=
+</code></pre></div>
+
+<h1 id="bashrc-hadoop">Bashrc Hadoop<a class="headerlink" href="#bashrc-hadoop" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="n">HADOOP_HOME</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">hadoop</span>
 <span class="k">export</span><span class="w"> </span><span class="n">PATH</span><span class="o">=$</span><span class="n">PATH</span><span class="p">:</span><span class="o">$</span><span class="n">HADOOP_HOME</span><span class="o">/</span><span class="n">bin</span><span class="p">:</span><span class="o">$</span><span class="n">HADOOP_HOME</span><span class="o">/</span><span class="n">sbin</span>
 <span class="k">export</span><span class="w"> </span><span class="n">HADOOP_CONF_DIR</span><span class="o">=$</span><span class="n">HADOOP_HOME</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">hadoop</span>
