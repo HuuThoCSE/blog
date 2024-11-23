@@ -6,9 +6,9 @@ Hadoop 3.x và mới hơn: Tệp được đặt tên là workers.
 Hadoop 2.x và cũ hơn: Tệp được đặt tên là slaves.
 
 ```
-$HADOOP_HOME/etc/hadoop/workers
+sudo nano vi $HADOOP_HOME/etc/hadoop/workers
 
-sudo nano $HADOOP_HOME/etc/hadoop/slaves
+$HADOOP_HOME/etc/hadoop/slaves
 ```
 
 ```
