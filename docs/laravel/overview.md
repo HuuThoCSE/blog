@@ -100,7 +100,7 @@ php artisan make:controller HomeController
 
 ## Tạo model
 ```cmd
-php artisan make model SinhVienModel
+php artisan make:model SinhVienModel
 ```
 
 ## Kết nối database
@@ -108,4 +108,26 @@ php artisan make model SinhVienModel
 Sau đó chạy code:
 ```cmd
 php artisan migrate
+```
+
+# Database
+## Tạo migrate
+```
+php artisan make:migration create_farms_table
+```
+
+## Tạo seeder
+```
+php artisan make:seeder GoatTableSeeder
+```
+
+## Tạo cả table và seeder
+```
+php artisan migrate:fresh --seed
+```
+
+# Network
+Khởi động toàn cục trong cùng một mạng nội bộ
+```
+php artisan serve --host=0.0.0.0
 ```
